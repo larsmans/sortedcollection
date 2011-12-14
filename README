@@ -1,0 +1,4 @@
+A sorted set data structure for Python, built on the C++ standard library
+std::set template class.
+
+Or, a toy example of how to wrap C++ code in Cython.

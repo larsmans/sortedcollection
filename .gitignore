@@ -1,0 +1,7 @@
+*.o
+*.pyc
+*.so
+*.*.swp
+build/
+
+_sorted.cpp
