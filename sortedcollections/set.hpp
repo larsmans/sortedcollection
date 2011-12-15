@@ -1,31 +1,8 @@
-#include <Python.h>
+#ifndef _SET_HPP
+#define _SET_HPP
+
 #include <set>
-
-// RAII wrapper for PyObject *
-struct py_object
-{
-    PyObject mutable *obj;
-
-    py_object(PyObject *o) : obj(o)
-    {
-        Py_INCREF(obj);
-    }
-
-    py_object(py_object const &other) : obj(other.obj)
-    {
-        Py_INCREF(obj);
-    }
-
-    ~py_object()
-    {
-        Py_DECREF(obj);
-    }
-};
-
-bool operator<(py_object const &x, py_object const &y)
-{
-    return PyObject_RichCompareBool(x.obj, y.obj, Py_LT) == 1;
-}
+#include "py_obj.hpp"
 
 // Note: public inheritance from a baseclass without virtual dtor;
 // a mortal sin in some C++ programmers' circles.
@@ -71,3 +48,5 @@ inline void make_iterator(sorted_set const *s, sorted_set_iterator &i)
 {
     i = s->begin();
 }
+
+#endif
