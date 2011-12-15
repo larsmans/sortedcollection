@@ -33,9 +33,17 @@ cdef class _SortedSet(object):
         return self._set.size()
 
     def add(self, x):
+        """Add element x to the set
+
+        Complexity: O(lg n)
+        """
         self._set.add(x)
 
     def discard(self, x):
+        """Remove element x from the set, if present (else no-op)
+
+        Complexity: O(lg n)
+        """
         self._set.discard(x)
 
 cdef class Iterator(object):
