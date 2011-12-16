@@ -1,5 +1,5 @@
 from collections import MutableSet
-from _sorted import _SortedSet
+from .set import _SortedSet
 
 class SortedSet(_SortedSet, MutableSet):
     def __init__(self, data):
