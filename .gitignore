@@ -3,6 +3,6 @@
 *.pyc
 *.so
 *.*.swp
-build/
 
-_sorted.cpp
+build/
+cython_debug/
