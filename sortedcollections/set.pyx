@@ -25,9 +25,7 @@ cdef class _SortedSet(object):
         return self._set.contains(x)
 
     def __iter__(self):
-        it = Iterator(self)
-        while True:
-            yield it.next()
+        return _SetIterator(self)
 
     def __len__(self):
         return self._set.size()
@@ -46,7 +44,7 @@ cdef class _SortedSet(object):
         """
         self._set.discard(x)
 
-cdef class Iterator(object):
+cdef class _SetIterator(object):
     cdef _SortedSet _set
     cdef sorted_set_iterator _iter
 

@@ -11,7 +11,13 @@ def test_sortedset():
     assert_equal(list(a), [1, 3])
 
 
-def test_union():
+def test_set_iterator():
+    l = "foo bar baz".split()
+    a = SortedSet(l)
+    assert_equal(sum(1 for x in a), len(l))
+
+
+def test_set_union():
     a = SortedSet([1, 2])
     b = set([2, 3])
 
